@@ -79,14 +79,8 @@ function emptyForm(){
         alert("Введите имя отправителя");
         return false;
     }
-    for (let i = 0; i < name.length; i++) {
-        if (name[i] >= "0" && name[i] <= "9") {
-            alert("Имя отправителя не должно содержать цифры");
-            return false;
-        }
-    }
-    if (/[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(name)) {
-        alert("Имя не должно содержать знаков препинания");
+    if (/[^a-zа-яё\s]/i.test(name)) {
+        alert("Имя отправителя не должно содержать числа и символы");
         return false;
     }
     
@@ -94,16 +88,11 @@ function emptyForm(){
         alert("Введите имя адресата");
         return false;
     }
-    if (/[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(addressee)) {
-        alert("Имя не должно содержать знаков препинания");
+    if (/[^a-zа-яё\s]/i.test(addressee)) {
+        alert("Имя адресата не должно содержать числа и символы");
         return false;
     }
-    for (let i = 0; i < addressee.length; i++) {
-        if (addressee[i] >= "0" && addressee[i] <= "9") {
-            alert("Имя адресата не должно содержать цифры");
-            return false;
-        }
-    }
+
     if (!heading){
         alert("Введите заголовок открытки");
         return false
